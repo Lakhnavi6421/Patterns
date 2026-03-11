@@ -3,7 +3,9 @@ class Medium_Pattern{
         // pattern1(5);
         // pattern2(5);
         // pattern3(5);
-        pattern4(5);
+        // pattern4(5);
+        pattern5(5);
+        pattern6(5);
     }
 
     public static void pattern1(int n){
@@ -51,6 +53,35 @@ class Medium_Pattern{
                 System.out.print(ch);
                 ch++;
             }
+            System.out.println();
+        }
+    }
+
+    public static void pattern5(int n){
+        for(int i = 1 ; i <= n ; i++){
+            char ch = 'A';
+            for(int j = n ; j >=i ; j--){
+                System.out.print(ch);
+                ch++;
+            }
+            System.out.println();
+        }
+    }
+
+    public static void pattern6(int n){
+        for(int i = 1 ; i <= n ; i++){
+            char ch = 'A';
+            for(int b = n - 1 ; b >= i ; b--)
+                System.out.print("_");
+            for(int j = 1 ; j < i * 2 ; j++){
+                System.out.print(ch);
+                if(j < i)
+                    ch++;
+                else
+                    ch--;
+            }
+            for(int b = i ; b <= n-1 ; b++)
+                System.out.print("_");
             System.out.println();
         }
     }
