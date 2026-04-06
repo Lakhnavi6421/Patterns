@@ -14,21 +14,44 @@ public class Remove_duplicates {
     }
 
     public static int removeDuplicates(int nums[]){
+        // Brute force approach using HashSet
+
         // Using Hashset to store unique elements we have seen
-        HashSet<Integer> seen = new HashSet<>();
+//        HashSet<Integer> seen = new HashSet<>();
+//
+//        // Position to overwrite next unique element
+//        int index = 0;
+//
+//        // Loop over each number in nums
+//        for(int num : nums){
+//            // If num is not in the set, it is unique
+//            if(!seen.contains(num)){
+//                seen.add(num);       // Add num to the set
+//                nums[index] = num;   // Write num at current index position
+//                index++;             // Move index forward
+//            }
+//        }
+//        return index;          // return number of unique elemnets
 
-        // Position to overwrite next unique element
-        int index = 0;
+        // Optimal Approach (Two pointer)
 
-        // Loop over each number in nums
-        for(int num : nums){
-            // If num is not in the set, it is unique
-            if(!seen.contains(num)){
-                seen.add(num);       // Add num to the set
-                nums[index] = num;   // Write num at current index position
-                index++;             // Move index forward
+        // If array is empty, return 0
+        if(nums.length == 0) return 0;
+
+        // Pointer for last unique element
+        int i = 0;
+
+        // Start from second element
+        for(int j = 1; j < nums.length ; j++){
+            // If new unique element is found
+            if(nums[j] != nums[i]){
+                // Move unique position forward
+                i++;
+                // Place new unique element
+                nums[i] = nums[j];
             }
         }
-        return index;          // return number of unique elemnets
+        // i is last index of unique element, count = i + 1
+        return i+1;
     }
 }
