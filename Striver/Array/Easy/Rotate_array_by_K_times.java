@@ -6,13 +6,17 @@ import java.util.Arrays;
 public class Rotate_array_by_K_times {
     public static void main(String[] args) {
         int [] arr = {1,2, 3, 4, 5, 6};
-        int k = 5;
+        int k = 3;
 
 //        leftRotateByK(arr, K);
 //        System.out.println("Array after left rotation: " + Arrays.toString(arr));
 
         leftRotate(arr, arr.length, k);
         System.out.println("Array after left rotation: " + Arrays.toString(arr));
+
+        int [] arr2 = {1,2, 3, 4, 5, 6};
+        rightRotateByK(arr2, k);
+        System.out.println("Array after right rotation: " + Arrays.toString(arr2));
     }
 
     public static void leftRotateByK(int [] arr, int k){
@@ -57,4 +61,23 @@ public class Rotate_array_by_K_times {
         reverseArray(arr, 0, n-1);
     }
 
+    // Rotate the array to the right by K positions
+    public static void rightRotateByK(int[] arr, int k) {
+        int n = arr.length;
+        if (n == 0) return;
+
+        k = k % n;
+
+        // Store last k elements
+        int[] temp = Arrays.copyOfRange(arr, n - k, n);
+
+        // Shift the remaining elements to the right
+        for (int i = n - k - 1; i >= 0; i--)
+            arr[i + k] = arr[i];
+
+        // Copy the stored elements to the front
+        for (int i = 0; i < k; i++) {
+            arr[i] = temp[i];
+        }
+    }
 }
