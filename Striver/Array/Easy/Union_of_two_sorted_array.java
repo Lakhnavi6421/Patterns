@@ -30,21 +30,35 @@ public class Union_of_two_sorted_array {
     public static List<Integer> unionOfSortedArray(int[] arr1, int [] arr2){
         // Brute force approach using Map
         // count freq of value
-        HashMap<Integer, Integer> freq = new HashMap<>();
+//        HashMap<Integer, Integer> freq = new HashMap<>();
+//
+//        // store values of arr1 and arr2 in union
+//        List<Integer> union = new ArrayList<>();
+//
+//        for(int i = 0 ; i < arr1.length ; i++)
+//            freq.put(arr1[i], freq.getOrDefault(arr1[i], 0) + 1);
+//
+//        for(int i = 0 ; i < arr2.length ; i++)
+//            freq.put(arr2[i], freq.getOrDefault(arr2[i], 0) + 1);
+//
+//        for(int i : freq.keySet()){
+//            union.add(i);
+//        }
+//        return union;
+//
 
-        // store values of arr1 and arr2 in union
-        List<Integer> union = new ArrayList<>();
+        // Optimal approach using Set
+
+        HashSet<Integer> set = new HashSet<>();
+        ArrayList<Integer> union = new ArrayList<>();
 
         for(int i = 0 ; i < arr1.length ; i++)
-            freq.put(arr1[i], freq.getOrDefault(arr1[i], 0) + 1);
-
+            set.add(arr1[i]);
         for(int i = 0 ; i < arr2.length ; i++)
-            freq.put(arr2[i], freq.getOrDefault(arr2[i], 0) + 1);
+            set.add(arr2[i]);
 
-        for(int i : freq.keySet()){
+        for(int i : set)
             union.add(i);
-        }
         return union;
-
     }
 }
