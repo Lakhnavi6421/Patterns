@@ -47,7 +47,7 @@ public class Union_of_two_sorted_array {
 //        return union;
 //
 
-        // Optimal approach using Set
+        // Better approach using Set
 
         HashSet<Integer> set = new HashSet<>();
         ArrayList<Integer> union = new ArrayList<>();
