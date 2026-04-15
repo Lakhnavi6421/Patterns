@@ -42,7 +42,7 @@ public class appearance_of_num_Once
 //        for(int i : arr)
 //            hash[i]++;
 //
-//        // Step 4: find element with frequency = 1
+//        // Step L4: find element with frequency = 1
 //        for(int i : arr){
 //            if(hash[i] == 1)
 //                return i;
