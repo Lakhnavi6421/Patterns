@@ -1,4 +1,4 @@
-package BinarySearch;
+package BinarySearch.OneDimArrays;
 
 import java.util.Arrays;
 
@@ -32,7 +32,6 @@ public class BinarySearch {
             System.out.println("Element is not present in the array");
         else
             System.out.println("Element is present at index : " + res);
-        
     }
 
     public static int binarySearch(int [] arr, int left, int right, int x){
