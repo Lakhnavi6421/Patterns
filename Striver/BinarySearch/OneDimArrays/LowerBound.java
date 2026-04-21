@@ -14,10 +14,29 @@ public class LowerBound {
     }
 
     public static int lowerBound(int [] arr, int target){
-        for(int i = 0 ; i < arr.length ; i++){
-            if(arr[i] >= target)
-                return i;
+//        Brute force approach
+
+//        for(int i = 0 ; i < arr.length ; i++){
+//            if(arr[i] >= target)
+//                return i;
+//        }
+//        return arr.length;
+
+        // *** optimal sol BINARY SEARCH ******
+
+        int low = 0;
+        int high = arr.length - 1;
+        int ans = arr.length;
+
+        while (low <= high){
+            int mid =  (low + high) / 2;
+            if(arr[mid] >= target){
+                ans = mid;
+                high = mid - 1;
+            }
+            else
+                low = mid + 1;
         }
-        return arr.length;
+        return ans;
     }
 }
