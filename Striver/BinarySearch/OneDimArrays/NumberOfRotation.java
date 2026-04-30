@@ -2,7 +2,7 @@ package BinarySearch.OneDimArrays;
 
 public class NumberOfRotation {
     public static void main(String[] args) {
-        int[] arr = {3, 4, 5, 1, 2};
+        int[] arr = {3, 4, 5, 6, 1, 2};
         System.out.println(countRotations(arr));
     }
 
@@ -21,10 +21,23 @@ public class NumberOfRotation {
 
         // Better solution
 
-        for(int i = 0 ; i < arr.length - 1; i++){
-            if(arr[i] > arr[i+1])
-                return i+1;
+//        for(int i = 0 ; i < arr.length - 1; i++){
+//            if(arr[i] > arr[i+1])
+//                return i+1;
+//        }
+//        return 0;
+
+        // Optimal Solution
+
+        int low = 0;
+        int high = arr.length - 1;
+        while(low < high){
+            int mid = low + (high - low) / 2;
+            if(arr[mid] > arr[high])
+                low = mid + 1;
+            else
+                high = mid;
         }
-        return 0;
+        return low;
     }
 }
