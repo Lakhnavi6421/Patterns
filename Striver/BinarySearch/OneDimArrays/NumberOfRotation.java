@@ -9,16 +9,22 @@ public class NumberOfRotation {
     public static int countRotations(int[] arr){
         // Brute force solution
 
-        int minVal = arr[0];
-        int minInd = 0;
-        for(int i = 1 ; i < arr.length ; i++){
-            if(arr[i] < minVal){
-                minVal = arr[i];
-                minInd = i;
-            }
+//        int minVal = arr[0];
+//        int minInd = 0;
+//        for(int i = 1 ; i < arr.length ; i++){
+//            if(arr[i] < minVal){
+//                minVal = arr[i];
+//                minInd = i;
+//            }
+//        }
+//        return minInd;
+
+        // Better solution
+
+        for(int i = 0 ; i < arr.length - 1; i++){
+            if(arr[i] > arr[i+1])
+                return i+1;
         }
-        return minInd;
-
-
+        return 0;
     }
 }
